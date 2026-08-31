@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ProductFilterService } from '../../services/product-filter';
 
 interface AutosData {
   [marca: string]: string[];
@@ -59,5 +60,13 @@ export class ProductsFilter implements OnInit {
       modeloControl?.setValue('');
       modeloControl?.disable();
     }
+  }
+
+  //Checkbox
+
+  private filterService = inject(ProductFilterService);
+
+  toggleCategory(category: string) {
+    this.filterService.toggleCategory(category);
   }
 }
