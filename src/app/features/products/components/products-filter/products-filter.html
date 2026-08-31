@@ -1,53 +1,71 @@
-<div>
-    <div class="flex justify-between border-b">
-        <h3>Filtros</h3>
-        <span>Limpiar</span>
-    </div>
+<section class="bg-background py-6 md:px-8 space-y-8">
 
-    <div>
-        <form [formGroup]="autoForm" class="form-container">
-
-            <div class="form-group">
-                <label for="marca">Marca:</label>
-                <select id="marca" formControlName="marca">
-                    <option value="">-- Selecciona una marca --</option>
-                    @for (marca of marcas; track marca) {
-                    <option [value]="marca">{{ marca }}</option>
-                    }
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="modelo">Modelo:</label>
-                <select id="modelo" formControlName="modelo">
-                    <option value="">
-                        {{ autoForm.get('marca')?.value ? '-- Selecciona un modelo --' : '-- Primero selecciona una
-                        marca --' }}
-                    </option>
-                    @for (modelo of modelos; track modelo) {
-                    <option [value]="modelo">{{ modelo }}</option>
-                    }
-                </select>
-            </div>
-
-        </form>
+    <div class="bg-white p-2 border border-gray-200 py-6 px-8">
+        <div class="flex justify-between border-b border-gray-400 py-2 items-center">
+            <h3 class="text-2xl">Filtros</h3>
+            <span class="text-primary/70">Limpiar</span>
+        </div>
 
         <div>
-            <label>
-                <input type="checkbox" value="Aceites" (change)="toggleCategory('Aceites')">
-                Aceites
-            </label>
+            <form [formGroup]="autoForm" class="form-container space-y-4 my-4">
 
-            <label>
-                <input type="checkbox" value="Filtros" (change)="toggleCategory('Filtros')">
-                Filtros
-            </label>
+                <div class="form-group flex flex-col space-y-2">
+                    <label for="marca">Marca:</label>
+                    <select id="marca" formControlName="marca" class="py-2 border border-gray-300">
+                        <option value="">-- Selecciona una marca --</option>
+                        @for (marca of marcas; track marca) {
+                        <option [value]="marca">{{ marca }}</option>
+                        }
+                    </select>
+                </div>
 
-            <label>
-                <input type="checkbox" value="Baterías" (change)="toggleCategory('Baterías')">
-                Baterías
-            </label>
+                <div class="form-group flex flex-col">
+                    <label for="modelo">Modelo:</label>
+                    <select id="modelo" formControlName="modelo" class="py-2 border border-gray-300">
+                        <option value="">
+                            {{ autoForm.get('marca')?.value ? '-- Selecciona un modelo --' : '-- Primero selecciona una
+                            marca --' }}
+                        </option>
+                        @for (modelo of modelos; track modelo) {
+                        <option [value]="modelo">{{ modelo }}</option>
+                        }
+                    </select>
+                </div>
+
+            </form>
+            <h3 class="uppercase text-gray-600 font-semibold">Categoría</h3>
+            <div class="space-x-2">
+
+                <label>
+                    <input type="checkbox" value="Aceites" (change)="toggleCategory('Aceites')">
+                    Aceites
+                </label>
+
+                <label>
+                    <input type="checkbox" value="Filtros" (change)="toggleCategory('Filtros')">
+                    Filtros
+                </label>
+
+                <label>
+                    <input type="checkbox" value="Baterías" (change)="toggleCategory('Baterías')">
+                    Baterías
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-white border border-gray-200 py-6 px-8">
+        <span>Mostrando 1 - 8 de 30 repuestos</span>
+        <div class="form-group flex flex-col space-y-2">
+            <label for="marca">Marca:</label>
+            <select (change)="setSort($any($event.target).value)" class="py-2 border border-gray-300">
+                <option value="relevance">Relevancia</option>
+                <option value="price-low">Precio: menor a mayor</option>
+                <option value="price-high">Precio: mayor a menor</option>
+                <option value="name">Nombre: A-Z</option>
+            </select>
         </div>
 
     </div>
-</div>
+</section>

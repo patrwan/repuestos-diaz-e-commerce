@@ -1,21 +1,22 @@
 <div>
-    <h2>Lista de productos</h2>
-    <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto ">
+    <div class="flex flex-wrap justify-center lg:justify-start gap-6 max-w-5xl mx-auto p-6 ">
         @for (product of filteredProducts(); track product.id) {
 
         <div class="border border-gray-200 relative w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
             <span
-                class="bg-blue-300 text-primary/80 font-semibold absolute z-10 left-10 top-10 rounded-2xl px-2 py-1 text-sm">{{product.category}}</span>
+                class="font-mono bg-blue-300 text-primary/80 font-semibold absolute z-10 left-10 top-10 rounded-2xl px-2 py-1 text-sm">{{product.category}}</span>
             <div class="p-6 bg-background">
                 <img src="https://placehold.co/600x400?text=Placeholder" alt="" class="w-full">
             </div>
-            <div class="flex flex-col p-6 space-y-4">
+            <div class="flex flex-col p-6 space-y-4 bg-white">
                 <h4 class="font-semibold"> {{product.name}}</h4>
+                <span class="text-primary font-semibold text-2xl">${{product.price}}</span>
                 <p>
                     {{product.description}}
                 </p>
-                <button class="bg-blue-300 text-primary hover:bg-primary hover:text-white font-semibold py-2 px-6">
-                    Cotizar Precio</button>
+                <button
+                    class="bg-white border border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-6">
+                    Ver Detalles</button>
             </div>
         </div>
         }

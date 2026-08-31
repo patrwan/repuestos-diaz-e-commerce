@@ -3,6 +3,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ProductFilterService } from '../../services/product-filter';
 
+import { SortOption } from '../../models/sort-option.model';
+
 interface AutosData {
   [marca: string]: string[];
 }
@@ -68,5 +70,9 @@ export class ProductsFilter implements OnInit {
 
   toggleCategory(category: string) {
     this.filterService.toggleCategory(category);
+  }
+
+  setSort(sort: SortOption) {
+    this.filterService.setSort(sort);
   }
 }

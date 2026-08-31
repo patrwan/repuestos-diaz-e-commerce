@@ -1,10 +1,17 @@
-<section class="px-4 py-6">
-    <h2>Catálogo de Repuestos</h2>
-    <p>
+<section class="px-4 py-6 bg-background space-y-6">
+    <h2 class="text-primary font-bold text-2xl text-center">Catálogo de Repuestos</h2>
+    <p class="text-center text-zinc-600">
         Encuentra la pieza exacta para tu vehículo. Contamos con un amplio stock de repuestos originales y alternativos
         de la más alta calidad, garantizando rendimiento y durabilidad
     </p>
 
-    <app-products-filter />
-    <app-product-list />
+    <div class="lg:grid lg:grid-cols-[auto_1fr] lg:gap-4">
+        <div class=" lg:max-w-110 ">
+            <app-products-filter />
+        </div>
+        <div class="">
+            <app-product-list />
+        </div>
+    </div>
+
 </section>
