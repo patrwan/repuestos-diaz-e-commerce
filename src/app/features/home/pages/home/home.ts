@@ -8,7 +8,7 @@ import { Products } from '../../components/products/products';
 
 @Component({
   selector: 'app-home',
-  imports: [Hero, QuickSearch, ValueProposition, Brands, Branches, Products],
+  imports: [Hero /* QuickSearch */, ValueProposition /* Brands */, Branches, /* Products */],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

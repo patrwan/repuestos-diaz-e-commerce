@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { Branch, Commune } from '../../../../core/models/branch.model';
+import { BRANCHES } from '../../../../data/branches';
+
 @Component({
   selector: 'app-branches',
   imports: [],
@@ -7,5 +10,15 @@ import { Component } from '@angular/core';
   styleUrl: './branches.css',
 })
 export class Branches {
+  selectedCommune: Commune = 'santa-cruz';
 
+  branches = BRANCHES;
+
+  selectCommune(commune: Commune) {
+    this.selectedCommune = commune;
+  }
+
+  get currentBranches(): Branch[] {
+    return this.branches[this.selectedCommune];
+  }
 }
