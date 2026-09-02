@@ -10,7 +10,7 @@ import { BRANCHES } from '../../../../data/branches';
   styleUrl: './branches.css',
 })
 export class Branches {
-  selectedCommune: Commune = 'santa-cruz';
+  selectedCommune: Commune = 'san-fernando';
 
   branches = BRANCHES;
 
